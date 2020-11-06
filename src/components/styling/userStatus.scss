@@ -1,0 +1,31 @@
+.card-status {
+  margin-top: 13px;
+  display: flex;
+}
+
+%card-status-head-style {
+  margin-right: 14px;
+}
+
+.card-status-head {
+  @extend %card-status-head-style;
+  margin-left: 18px;
+}
+
+.card-status-head-quality {
+  display: flex;
+  align-items: center;
+  div {
+    margin-right: 10px;
+  }
+}
+
+.progress-circle {
+  height: 28px;
+  width: 28px;
+}
+
+.card-status-numbers {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,42 @@
+%sg-style {
+  color: #001521;
+  font-size: 14px;
+}
+
+.progress-details-main {
+  margin-top: 13px;
+  margin-bottom: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sg-head {
+  @extend %sg-style;
+}
+
+.progress-bar {
+  position: relative;
+  height: 8px;
+  width: 70%;
+  margin-left: 8px;
+  margin-right: 8px;
+  background: #dadee2;
+  border-radius: 2px;
+}
+
+.mid-line {
+  position: absolute;
+  width: 0px;
+  height: 10px;
+  border: 1px solid #001521;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.sg-value {
+  @extend %sg-style;
+  font-weight: 500;
+}
