@@ -40,3 +40,10 @@
   @extend %sg-style;
   font-weight: 500;
 }
+
+.animate-process-bar {
+  position: absolute;
+  border-radius: 2px;
+  height: 100%;
+  animation: grow 2s ease-in-out;
+}

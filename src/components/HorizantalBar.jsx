@@ -10,28 +10,33 @@ export default function HorizantalBar(props) {
   const negativeResult =
     value < 0 && value <= limit ? (-value / limit) * 50 : 0;
 
-  const barStyling = {
-    position: "absolute",
-    borderRadius: "2px",
-    height: "100%",
-    transitionProperty: "width",
-    transitionDuration: "1.25s",
-    transitionTimingFunction: "linear",
-    transitionDelay: "0.5s",
-  };
   const posiInnerProgressBar = {
-    ...barStyling,
     left: "50%",
     width: `${positiveResult}%`, // calc with respect to 50%
     backgroundImage: "linear-gradient(to right, #56a7ff, #007aff)",
   };
 
   const negInnerProgressBar = {
-    ...barStyling,
     right: "50%",
     width: `${negativeResult}%`, // calc with respect to 50%
     backgroundImage: "linear-gradient(to left, #56a7ff, #007aff)",
   };
+
+  // animation part start here
+  const styleSheet = document.styleSheets[0];
+
+  const keyframes = `@keyframes grow {
+      0% {
+      width: 0%;
+    }
+    50% {
+      width: ${positiveResult > 0 ? positiveResult : negativeResult}%;
+    }
+  }`;
+
+  styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+  // animation part end here
 
   return (
     <div className="progress-details-main">
@@ -41,9 +46,9 @@ export default function HorizantalBar(props) {
       <div className="progress-bar">
         <div className="mid-line" />
         {value > 0 ? (
-          <div style={posiInnerProgressBar} />
+          <div className="animate-process-bar" style={posiInnerProgressBar} />
         ) : (
-          <div style={negInnerProgressBar} />
+          <div className="animate-process-bar" style={negInnerProgressBar} />
         )}
       </div>
       <Typography color="primary" variant="subtitle2">

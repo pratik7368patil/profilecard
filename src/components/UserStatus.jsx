@@ -25,7 +25,7 @@ export default function UserStatus(props) {
         <div>
           <Circle
             className="progress-circle"
-            percent="80"
+            percent={`${data.quality}`}
             strokeWidth="10"
             trailWidth="10"
             strokeColor="#F43168"
